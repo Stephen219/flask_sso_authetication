@@ -126,15 +126,15 @@ def login():
                 'exp': datetime.utcnow() + timedelta(minutes=30)
             }, app.config['SECRET_KEY'], algorithm="HS256")
             
-            next_param = str(auth.get('next'))  # Get the next parameter from the form
+            next_param = str(auth.get('next'))  
             print(f"Next parameter from form: {next_param}")  # Debugging statement
 
             # Redirect to the next parameter or dashboard
-            if next_param != None:  # next_param should always have a value now
+            if next_param != None: 
                 print(f"Redirecting to next page: {next_param}")  # Debugging statement
-                response = redirect(next_param)  # Use the original next_param
+                response = redirect(next_param)  
             else:
-                print("No next parameter found. Redirecting to dashboard.")  # Debugging statement
+                print("No next parameter found. Redirecting to dashboard.")  
                 response = make_response(redirect(url_for('dashboard')))
 
             response.set_cookie('x-access-token', token)
@@ -182,6 +182,6 @@ def dashboard(current_user):
 
 
 if __name__ == "__main__":
-    # Set the default port if not provided
+    
     
     app.run(debug=True, port=5500)
