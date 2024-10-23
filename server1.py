@@ -127,11 +127,11 @@ def login():
             }, app.config['SECRET_KEY'], algorithm="HS256")
             
             next_param = str(auth.get('next'))  
-            print(f"Next parameter from form: {next_param}")  # Debugging statement
+            print(f"Next parameter from form: {next_param}")
 
             # Redirect to the next parameter or dashboard
             if next_param != None: 
-                print(f"Redirecting to next page: {next_param}")  # Debugging statement
+                print(f"Redirecting to next page: {next_param}") 
                 response = redirect(next_param)  
             else:
                 print("No next parameter found. Redirecting to dashboard.")  
